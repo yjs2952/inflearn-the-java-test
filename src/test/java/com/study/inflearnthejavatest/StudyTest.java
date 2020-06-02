@@ -3,6 +3,7 @@ package com.study.inflearnthejavatest;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class StudyTest {
     @Test
@@ -18,6 +19,14 @@ class StudyTest {
         Study study = new Study();
         assertNotNull(study);
         System.out.println("create1");
+    }
+
+    @Test
+    @DisplayName("스터디 만들기")
+    void create_new_study(){
+        String test_env = System.getenv("TEST_ENV");
+        System.out.println(test_env);
+        assumeTrue("LOCAL".equalsIgnoreCase(test_env));
     }
 
     @BeforeAll
